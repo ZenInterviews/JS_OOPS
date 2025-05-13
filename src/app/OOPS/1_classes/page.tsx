@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 
-import LiveCode from "../components/LiveEditor";
+import LiveCode from "../../components/LiveEditor";
 
 const ClassesPage = () => {
   const classCode = `
