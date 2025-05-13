@@ -1,3 +1,38 @@
-@import 'tailwindcss';
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for code blocks and live editor */
+.live-editor {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg;
+}
+
+.live-preview {
+  @apply bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700;
+}
+
+.live-error {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  @apply transition-colors duration-200;
+}
