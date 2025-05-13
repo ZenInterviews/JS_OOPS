@@ -32,10 +32,12 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
         // ? https://react.dev/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors
         <html suppressHydrationWarning lang='en'>
             <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}>
-                <ThemeProvider attribute='class'> <div className="flex">
-    <OOPSidebar />
-    <main className="flex-1 ml-64 p-6">{children}</main>
-  </div></ThemeProvider>
+                <ThemeProvider attribute='class'>
+                    <OOPSidebar />
+                    <div className="main-flex-container">
+                        <main className="main-content">{children}</main>
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     );

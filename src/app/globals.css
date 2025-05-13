@@ -5,6 +5,16 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    --editor-bg: 210 40% 96.1%;
+    --editor-dark-bg: 222.2 47.4% 11.2%;
+    --preview-bg: 0 0% 100%;
+    --preview-dark-bg: 222.2 84% 4.9%;
+    --border-light: 214.3 31.8% 91.4%;
+    --border-dark: 217.2 32.6% 17.5%;
+    --error-bg: 0 100% 97%;
+    --error-dark-bg: 0 63% 31%;
+    --error-text: 0 84.2% 4.9%;
+    --error-dark-text: 0 91.7% 97.3%;
   }
 
   .dark {
@@ -15,24 +25,67 @@
 
 @layer base {
   body {
-    @apply bg-theme text-theme;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
 /* Custom styles for code blocks and live editor */
 .live-editor {
-  @apply bg-slate-100 dark:bg-slate-800 rounded-lg;
+  background-color: hsl(var(--editor-bg));
+  border-radius: 0.5rem;
+}
+
+.dark .live-editor {
+  background-color: hsl(var(--editor-dark-bg));
 }
 
 .live-preview {
-  @apply bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700;
+  background-color: hsl(var(--preview-bg));
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border-light));
+  padding: 1rem;
+}
+
+.dark .live-preview {
+  background-color: hsl(var(--preview-dark-bg));
+  border-color: hsl(var(--border-dark));
 }
 
 .live-error {
-  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+  background-color: hsl(var(--error-bg));
+  color: hsl(var(--error-text));
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.dark .live-error {
+  background-color: hsl(var(--error-dark-bg));
+  color: hsl(var(--error-dark-text));
 }
 
 /* Smooth transitions for theme changes */
 * {
-  @apply transition-colors duration-200;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+.main-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .main-flex-container {
+    margin-left: 16rem; /* width of the sidebar */
+  }
+}
+
+.main-content {
+  max-width: 800px;
+  width: 100%;
+  padding: 1.5rem;
 }

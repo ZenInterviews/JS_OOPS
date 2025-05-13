@@ -7,14 +7,7 @@ module.exports = {
         './src/app/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
-        extend: {
-            backgroundColor: {
-                theme: 'hsl(var(--background))'
-            },
-            textColor: {
-                theme: 'hsl(var(--foreground))'
-            }
-        }
+        extend: {}
     },
     plugins: []
 };
