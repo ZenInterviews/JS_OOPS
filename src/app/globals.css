@@ -15,17 +15,17 @@
 
 @layer base {
   body {
-    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    @apply bg-theme text-theme;
   }
 }
 
 /* Custom styles for code blocks and live editor */
 .live-editor {
-  @apply bg-gray-100 dark:bg-gray-800 rounded-lg;
+  @apply bg-slate-100 dark:bg-slate-800 rounded-lg;
 }
 
 .live-preview {
-  @apply bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700;
+  @apply bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700;
 }
 
 .live-error {
