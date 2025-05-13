@@ -1,4 +1,8 @@
 // pages/tutorial/1_classes.tsx
+'use client';
+
+import Link from "next/link";
+
 import LiveCode from "../components/LiveEditor";
 
 const ClassesPage = () => {
