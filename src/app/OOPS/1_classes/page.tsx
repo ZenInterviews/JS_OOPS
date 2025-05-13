@@ -6,20 +6,39 @@ import Link from "next/link";
 import LiveCode from "../../components/LiveEditor";
 
 const ClassesPage = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   const classCode = `
-class Animal {
-  constructor(name) {
-    this.name = name;
+(() => {
+  class Animal {
+    constructor(name) {
+      this.name = name;
+    }
+
+    speak() {
+      return \`\${this.name} makes a sound\`;
+    }
   }
 
-  speak() {
-    return \`\${this.name} makes a sound\`;
-  }
-}
-
-const dog = new Animal("Dog");
-dog.speak(); // Output: Dog makes a sound
-  `.trim();
+  const dog = new Animal("Dog");
+  return <div>{dog.speak()}</div>;
+})()
+`.trim();
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
